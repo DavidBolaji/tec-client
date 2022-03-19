@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100vw;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .mailing_list .mailing_list_image {
