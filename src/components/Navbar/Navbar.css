@@ -1,0 +1,42 @@
+.navbar {
+  height: 30px;
+  width: 100vw;
+  background-color: blue;
+  padding: 0px;
+  margin: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  box-shadow: 5px 10px 5px 5px rgba(0, 0, 0, 0.3);
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .navbar_menu {
+  cursor: pointer;
+}
+
+.navbar .navbar_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .navbar_logo img {
+  width: 70px;
+  transform: translateY(-2px);
+}
+
+.navbar .navbar_logo span {
+  color: blue;
+}
+
+.navbar .navbar_search {
+  cursor: pointer;
+}
