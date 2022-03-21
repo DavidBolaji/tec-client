@@ -27,14 +27,12 @@ export default function App() {
 
 
 
-  return !load ? (
-    
-    <div>
-      <Homepage />
-    </div>
-  ): (
-    <div className="spinner">
-      <Spin size="large"/>
-    </div>
-  );
+  return <div><Homepage /></div>
+  // )
+  
+  // : (
+  //   <div className="spinner">
+  //     <Spin size="large"/>
+  //   </div>
+  // );
 }

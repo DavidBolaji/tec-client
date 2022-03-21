@@ -27,14 +27,14 @@ const SubjectTutors = () => {
       <div className="group_container">  
         <div className="group_one">
             <div className="left"
-            data-aos="flip-left"
+             data-aos="zoom-in"
             data-aos-duration="2500"
             >
                 <img src={Logo} />
                 <h3>Mathematics Tutoring</h3>
             </div>
             <div className="right"
-            data-aos="flip-left"
+             data-aos="zoom-in"
             data-aos-duration="2500"
             >
                 <img src={Logo} />
@@ -43,14 +43,14 @@ const SubjectTutors = () => {
         </div>
         <div className="group_two" style={{marginTop: '40px'}}>
             <div className="left"
-            data-aos="flip-left"
+            data-aos="zoom-in"
             data-aos-duration="2500"
             >
                 <img src={Logo} />
                 <h3>Junior Science Tutor</h3>
             </div>
             <div className="right"
-            data-aos="flip-left"
+            data-aos="zoom-in"
             data-aos-duration="2500"
             >
                 <img src={Logo} />

@@ -40,3 +40,25 @@
 .navbar .navbar_search {
   cursor: pointer;
 }
+
+
+.navbar__slider {
+  background-color: rgb(50, 50, 129);
+  width: 40vw;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0px;
+  box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, 0.3);
+  border-left: 2px solid black;
+  /* filter: blur(1px); */
+}
+
+.navbar__backdrop {
+  width: 100vw;
+  position: fixed;
+  z-index: 6;
+  top: 6.29869vh;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.282);
+}

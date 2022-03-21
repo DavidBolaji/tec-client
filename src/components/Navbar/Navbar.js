@@ -5,6 +5,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
+    <>
     <div className="navbar">
       <div className="navbar_menu">
         <HiMenuAlt1 color="#fff" fontSize="20px" />
@@ -17,6 +18,13 @@ const Navbar = () => {
         <HiSearch color="#fff" fontSize="20px" />
       </div>
     </div>
+    {/* <div className="navbar__slider">
+      
+    </div>
+    <div className="navbar__backdrop">
+      
+    </div> */}
+    </>
   );
 };
 
