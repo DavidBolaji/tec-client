@@ -21,10 +21,7 @@ const TecInEVeryCommunity = () => {
         home={`Home`}
         page={`Tec in every community`}
       />
-     <TecInEveryC />
-      
-      
-     
+     <TecInEveryC />     
       <MailingList />
       <GetConnected />
       <BackTop>
