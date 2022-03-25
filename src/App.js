@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Redirect, Route, Routes, Switch } from "react-router-dom";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 import { Spin } from 'antd';
 import Homepage from "./pages/Homepage";
 import AboutPage from "./pages/AboutPage";
@@ -23,19 +23,23 @@ import AOS from 'aos';
 
 export default function App() {
   const [load, setLoaded] = useState(true)
+  const location = useLocation();
+  
   useEffect(() => {
     const onLoading = () => {
       setLoaded(false)
       
     }
-    // disable: 'mobile'
     AOS.init({});
     
     window.addEventListener('load', onLoading);
-    // window.addEventListener('scroll', () => AOS.refresh())
 
     return () => window.removeEventListener('load',onLoading)
   },[])
+
+  useLayoutEffect(() => {
+   window.scrollTo(0,0)
+  },[location.pathname])
 
 
 

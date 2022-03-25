@@ -98,7 +98,7 @@ const Navbar = () => {
         <div><Link to="/contact">Contact</Link></div>
         <div><Link to="/blog">Blog</Link></div>
         <div className="dropdown" onClick={handleDropdown}>
-          <a href="#">Tec Groups </a>
+          <a >Tec Groups </a>
           <MdOutlineArrowRight style={{
             color: "#fff",
             marginTop: dropdown ? "3px" : "3px",

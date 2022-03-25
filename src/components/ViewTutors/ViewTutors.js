@@ -9,10 +9,10 @@ const ViewTutors = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const getDb = () => {
+   
+    const getDb = setTimeout(() => {
         setLoading(false)
-    }
-    setTimeout(getDb, 20000);
+    }, 20000);
 
     return () => clearTimeout(getDb)
   },[])

@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./Hero.css";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect, Route, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 const Hero = () => {

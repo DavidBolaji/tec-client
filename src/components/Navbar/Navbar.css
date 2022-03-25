@@ -95,7 +95,12 @@
 .links a {
   color: #fff;
   cursor: pointer;
+  white-space: nowrap;
 }
+
+.links a:hover {
+  color: red;
+} 
 
 .dropdown {
   display: flex;
