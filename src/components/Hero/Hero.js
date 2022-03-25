@@ -4,6 +4,8 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./Hero.css";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, Redirect, Route, useHistory } from "react-router-dom";
+
 
 const Hero = () => {
   const styles = {
@@ -16,6 +18,8 @@ const Hero = () => {
   const dispatch = useDispatch();
 
   const [active, setActive] = useState(1);
+
+  const history = useHistory();
 
   const handleLeft = () => {
     const newActive = activeCarou - 1;
@@ -36,6 +40,19 @@ const Hero = () => {
     dispatch({type: 'NEXT', payload: val}) 
   }
 
+  
+
+  const handleNavOne = () => {
+   history.push('/tec_in_every_home')
+  }
+
+  const handleNavTwo = () => {
+    history.push('tec_in_every_school')
+  }
+
+  const handleNavThree = () => {
+    history.push('tec_in_every_community')
+  }
   return (
     <div className="hero_cont">
       <div className="hero">
@@ -78,7 +95,10 @@ const Hero = () => {
           </div>
 
           <div className="hero_btn">
-            <Button styles={styles} title="Learn More" />
+            {activeCarou === 0 && <Button styles={styles} title="Learn More" onClick={handleNavOne} />}
+            {activeCarou === 1 && <Button styles={styles} title="Learn More2" onClick={handleNavThree} />}
+            {activeCarou === 2 && <Button styles={styles} title="Learn More3" onClick={handleNavTwo} />}
+            
           </div>
         </div>
         <div className="hero_controls">

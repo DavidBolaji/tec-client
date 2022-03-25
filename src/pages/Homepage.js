@@ -11,10 +11,15 @@ import ViewTutors from "../components/ViewTutors/ViewTutors";
 import GetConnected from "../components/GetConnected/GetConnected";
 import MailingList from "../components/MailingList/MailingList";
 import Footer from "../components/Footer/Footer";
+import { Helmet } from "react-helmet"
 
 const Homepage = () => {
   return (
     <React.Fragment>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Tec | Home</title>
+      </Helmet>
       <Navbar />
       <Hero />
       <Answer />

@@ -43,7 +43,23 @@
   
   
 @media only screen and (min-width: 810px) {
-    
+    .mailing_list {
+        flex-direction: row;
+        text-align: left;
+    }
+    .mailing_list .mailing_list_image {
+       flex: 0.5;
+    }
+    .mailing_list .mailing_list_text {
+        flex: 0.5;
+    }
+    .mailing_list .mailing_list_text h3 {
+        font-size: 1.245rem;
+    }
+
+    .mailing_list .mailing_list_text p {
+        font-size: 0.95rem;
+    }  
 }
   
   
