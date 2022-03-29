@@ -1,5 +1,5 @@
-import { Button } from 'antd';
-import React, {useState} from 'react';
+import { Button, Input, message } from 'antd';
+import React, {useState, useRef} from 'react';
 import { BsWhatsapp } from 'react-icons/bs';
 import { FaFacebook, FaRegAddressBook, FaTelegramPlane } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
@@ -7,8 +7,135 @@ import { MdSmartphone } from 'react-icons/md';
 import "./Contact.css";
 
 const Contact = () => {
-    const [input, setInput] = useState(8)
-    const [count, setCount] = useState('')
+    const [nameInput, setNameInput] = useState(8)
+    const [nameText, setNameText] = useState('');
+    const [load, setLoad] = useState(true)
+
+    const [emailInput, setEmailInput] = useState(9)
+    const [emailText, setEmailText] = useState('');
+    const [loadEmail, setLoadEmail] = useState(true)
+
+    const [subjectInput, setSubjectInput] = useState(5)
+    const [subjectText, setSubjectText] = useState('');
+    const [loadSubject, setLoadSubject] = useState(true)
+
+    const [classInput, setClassInput] = useState(1)
+    const [classText, setClassText] = useState('');
+    const [loadClass, setLoadClass] = useState(true)
+
+    const paraRef = useRef()
+    
+
+    const handleNameInputChange = (e) => {
+        const textValue = e.target.value;
+        const wordCount = nameText.split('').length + 1;
+       
+        if(!e.target.value.match(/^[a-zA-Z ]*$/)) return;
+        
+        if(wordCount === 2) {
+            console.log(load);
+            load ? setLoad(false) : setLoad(true);
+            if(!load) {
+                setNameText("");
+                setNameInput(8)
+            }
+        } else if (wordCount < nameInput) {
+            setNameInput(wordCount)
+        } else {
+            setNameInput(prev => prev + 1)
+        }
+        
+        setNameText(textValue)
+    }
+
+
+
+    const handleEmailInputChange = (e) => {
+        const emailValue = e.target.value;
+        const wordCount = emailText.split('').length + 1;
+
+        console.log(wordCount);
+
+       
+        if(!e.target.value.match(/^[a-zA-Z0-9_@.]*$/)) return;
+        
+        if(wordCount === 2) {
+            console.log(load);
+            loadEmail ? setLoadEmail(false) : setLoadEmail(true);
+            if(!loadEmail) {
+                setEmailText("");
+                setEmailInput(9)
+            }
+        } else if (wordCount < emailInput) {
+            setEmailInput(wordCount)
+        } else {
+            setEmailInput(prev => prev + 1)
+        }
+        
+        setEmailText(emailValue)
+    }
+
+
+    const handleSubjectInputChange = (e) => {
+        const subjectValue = e.target.value;
+        const wordCount = subjectText.split('').length + 1;
+       
+        if(!e.target.value.match(/^[a-zA-Z ]*$/)) return;
+        
+        if(wordCount === 2) {
+            console.log(load);
+            loadSubject ? setLoadSubject(false) : setLoadSubject(true);
+            if(!loadSubject) {
+                setSubjectText("");
+                setSubjectInput(5)
+            }
+        } else if (wordCount < subjectInput) {
+            setSubjectInput(wordCount)
+        } else {
+            setSubjectInput(prev => prev + 1)
+        }
+        
+        setSubjectText(subjectValue)
+    }
+
+    const handleClassInputChange = (e) => {
+        const classValue = e.target.value;
+        const wordCount = classText.split('').length + 1;
+       
+        if(!e.target.value.match(/^[a-zA-Z0-9 ]*$/)) return;
+        
+        if(wordCount === 2) {
+           
+            loadClass ? setLoadClass(false) : setLoadClass(true);
+            if(!load) {
+                setClassText("");
+                setClassInput(1)
+            }
+        } else if (wordCount < classInput) {
+            setClassInput(wordCount)
+        } else {
+            setClassInput(prev => prev + 1)
+        }
+        
+        setClassText(classValue)
+    }
+
+    const handleSend = () => {
+        if(nameText === "" || emailText === "" || subjectText === "" || classText === "") {
+            message
+            .loading('Action in progress..', 2.5)
+            .then(() => message.error('Message not sent.All fields are required', 2.5))    
+        } else {
+            const p =` My name is ${nameText}
+            and my e-mail address is ${emailText}
+            and I would like to request a ${subjectText} Tutor,
+            for a student in ${classText}`
+            message
+            .loading('Action in progress..', 2.5)
+            .then(() => message.success(p, 2.5))
+            .then(() => message.success('message sent', 2.5))    
+        }
+    }
   return (
     <div className='contact'>
         <div className='contact__social'>
@@ -71,25 +198,15 @@ const Contact = () => {
         </div>
         <div className='contact__message'>
             <h2>Pitch us</h2>
-            <p>
-            Hello, <br /> <br />
+            <p ref={paraRef}>
+            Hello, <br />
 
-            My name is <input placeholder='your name' size={input} onKeyPress={(e) => {
-                    
-                if(e.key.match(/^[A-Z]+$/i)) {
-                    setCount(e.target.value)
-                    setInput(count)
-                } 
-                console.log(count);
-                const newLen = (e.target.value + e.key).split('').length;
-                setInput(newLen)
-            }}/>
-            and my e-mail address is <input placeholder='your e-mail' size="9"/>
-            and I would like to request a <input placeholder='science' size="6"/> Tutor,
-            for a student in <input placeholder='ss2' size="8"/>
-.
+            My name is <input  value={nameText} placeholder='your name' size={nameInput} onChange={handleNameInputChange} required/>
+            and my e-mail address is <input placeholder='your e-mail' value={emailText} size={emailInput} onChange={handleEmailInputChange} required/>
+            and I would like to request a <input placeholder='science' size={subjectInput} onChange={handleSubjectInputChange} required/> Tutor,
+            for a student in <input value={classText} placeholder='ss2' size={classInput} onChange={handleClassInputChange} required/>.
             </p>
-            <Button type="primary" size={`small`}>Primary</Button>
+            <Button type="primary" size={`medium`} onClick={handleSend}>Send</Button>
         </div>
 
     </div>

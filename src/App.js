@@ -28,7 +28,6 @@ export default function App() {
   useEffect(() => {
     const onLoading = () => {
       setLoaded(false)
-      
     }
     AOS.init({});
     

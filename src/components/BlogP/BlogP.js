@@ -52,25 +52,19 @@ const blogPosts = [
 ]
 
 const BlogP = () => {
-
     const [loading, setLoading] = useState(true);
     const [screen, setScreen] = useState(window.screen.width);
     
     useEffect(() => {
-
-      const onLoading = () => {
-        setLoading(false)
-      }
       
-        window.addEventListener('load', onLoading);
-  
-      return () => window.removeEventListener('load',onLoading)
-    },[])
+       if(blogPosts.length > 0) {
+        setLoading(false)
+       }
+    },[blogPosts])
 
     
   
     useEffect(() => {
-  
       const checkResize = (e) => {
         setScreen(window.screen.width);
       }
@@ -194,8 +188,6 @@ const BlogP = () => {
                 <h2>Recent posts</h2>
                 {blogPosts.map(e=><div key={e.id}><Link to={e.link}>{e.title}</Link></div>)}
             </div>
-
-            
 
         </div>
     </div>
