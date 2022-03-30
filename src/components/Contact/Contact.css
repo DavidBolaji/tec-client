@@ -98,7 +98,7 @@
     font-size: 22px;
     flex-direction: row;
     cursor: pointer;
-    width: 70%;
+    /* width: 70%; */
 }
 
 @media only screen and (min-width: 550px) {

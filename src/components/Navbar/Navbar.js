@@ -20,7 +20,6 @@ const Navbar = () => {
         } else {
           setTransparent(false)
         }
-        console.log(window.document.scrollingElement.scrollTop);
     }
 
     window.addEventListener('scroll', handleTransparent)
@@ -116,7 +115,7 @@ const Navbar = () => {
           transform: dropdown ? "translateY(115px)" : "",
           transition: "transform 0.1s ease"
         }}
-        ><Link to="/login">Login</Link></div>
+        ><Link to="/tec-client/login">Login</Link></div>
       </div>
     </div>
     <div className={`navbar__backdrop ${nav && 'active'}`} onClick={handleClick}></div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Redirect, Route, Switch, useLocation } from "react-router-dom";
-import { Spin } from 'antd';
+import { Button, Modal, notification, Spin } from 'antd';
 import Homepage from "./pages/Homepage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -18,10 +18,26 @@ import 'aos/dist/aos.css'
 import AOS from 'aos';
 
 
+const ReachableContext = React.createContext();
+const UnreachableContext = React.createContext();
+
+const config = {
+  title: 'Searching for A tutor?',
+  content: (
+    <>
+      <ReachableContext.Consumer>{name => `Reachable: ${name}!`}</ReachableContext.Consumer>
+      <br />
+      <UnreachableContext.Consumer>{name => `Unreachable: ${name}!`}</UnreachableContext.Consumer>
+    </>
+  ),
+};
+
+
 
 
 
 export default function App() {
+  const [modal, contextHolder] = Modal.useModal();
   const [load, setLoaded] = useState(true)
   const location = useLocation();
   
