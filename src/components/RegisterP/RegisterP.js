@@ -23,21 +23,19 @@ const RegisterP = () => {
         // 1. Limit the number of uploaded files
         fileList = fileList.slice(-1);
 
-        if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
-          }
-          if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
-          } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-          }
+        
+        if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+        } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+        }
     
         setImg({ fileList });
       };
 
     const props = {
         name: 'file',
-        action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+        action: 'https://run.mocky.io/v3/0a957d89-c5a2-4018-9dc2-99c6c6e7d223',
         multiple: true,
         onChange: handleChange
       };

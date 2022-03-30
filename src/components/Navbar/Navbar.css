@@ -48,21 +48,23 @@
 
 .navbar__slider {
   background-color: #323281;
-  width: 50vw;
+  width: 60vw;
   position: fixed;
   z-index: 10;
   top: 0;
   bottom: 0px;
   box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, 0.3);
   border-left: 2px solid black;
-  transform: translateX(-60vw);
-  transition: transform 0.5s ease-in;
+  transform: translateX(-70vw);
+  transition: all 0.5s ease-in;
+  visibility: hidden;
   /* filter: blur(1px); */
 }
 
 
 .navbar__slider.active {
   transform: translateX(0vw);
+  visibility: visible;
 }
 
 .navbar__backdrop {

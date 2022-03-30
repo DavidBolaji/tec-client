@@ -67,7 +67,7 @@ const LoginP = () => {
                         >Submit</Button>
                     </div>
                     <p>
-                        <span style={{fontWeight: 700}}>Not registered yet?</span> <span><Link to="/tec-client/register">Craete an account</Link></span>
+                        <span style={{fontWeight: 700}}>Not registered yet?</span> <span><Link to="/tec-client/register">Create an account</Link></span>
                     </p>
                 </form>
             </div>
