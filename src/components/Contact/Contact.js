@@ -3,7 +3,7 @@ import React, {useState, useRef} from 'react';
 import { BsWhatsapp } from 'react-icons/bs';
 import { FaFacebook, FaRegAddressBook, FaTelegramPlane } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
-import { MdSmartphone } from 'react-icons/md';
+import { MdOutlineAlternateEmail, MdSmartphone } from 'react-icons/md';
 import "./Contact.css";
 
 const Contact = () => {
@@ -187,7 +187,7 @@ const Contact = () => {
             data-aos="flip-left"
             data-aos-duration="2000"
             >
-                <FiMail /> <span>info@tecworld.com.ng</span>
+                <MdOutlineAlternateEmail /> <span>info@tecworld.com.ng</span>
             </div>
             <div className='contact__meet__address'
             data-aos="flip-left"
