@@ -45,44 +45,44 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route path="/tec-client" exact><Redirect to="/home" /> </Route>
-        <Route path="/home">
+        <Route path="/tec-client" exact><Redirect to="/tec-client/home" /> </Route>
+        <Route path="/tec-client/home">
           <Homepage />
         </Route>
 
-        <Route path="/about">
+        <Route path="/tec-client/about">
           <AboutPage />
         </Route>
 
-        <Route path="/contact">
+        <Route path="/tec-client/contact">
           <ContactPage />
         </Route>
 
-        <Route path="/tec_in_every_home">
+        <Route path="/tec-client/tec_in_every_home">
           <TecInEveryHome />
         </Route>
 
-        <Route path="/tec_in_every_community">
+        <Route path="/tec-client/tec_in_every_community">
           <TecInEveryCommunity />
         </Route>
 
-        <Route path="/tec_in_every_school">
+        <Route path="/tec-client/tec_in_every_school">
           <TecInEverySchool />
         </Route>
 
-        <Route path="/blog">
+        <Route path="/tec-client/blog">
           <Blog />
         </Route>
 
-        <Route path="/blog/:blogId">
+        <Route path="/tec-client/blog/:blogId">
           <BlogSingle />
         </Route>
 
-        <Route path="/login">
+        <Route path="/tec-client/login">
           <Login />
         </Route>
 
-        <Route path="/register">
+        <Route path="/tec-client/register">
           <Register />
         </Route>
 

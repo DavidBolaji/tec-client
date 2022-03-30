@@ -45,10 +45,10 @@ const Navbar = () => {
         <img src={Logo} alt="tec-logo" width="100px"/>
       </div>
       <div className={`desktop__links ${transparent && 'active'}`}>
-        <div className="main"><Link to="/home">Home</Link></div>
-        <div className="main"><Link to="/about">About</Link></div>
-        <div className="main"><Link to="/contact">Contact</Link></div>
-        <div className="main"><Link to="/blog">Blog</Link></div>
+        <div className="main"><Link to="/tec-client/home">Home</Link></div>
+        <div className="main"><Link to="/tec-client/about">About</Link></div>
+        <div className="main"><Link to="/tec-client/contact">Contact</Link></div>
+        <div className="main"><Link to="/tec-client/blog">Blog</Link></div>
         <div className="dropdown main" onMouseEnter={handleDropdown} onMouseLeave={handleDropdown}>
           <a href="#">Tec Groups </a>
           <MdOutlineArrowRight style={{
@@ -58,12 +58,12 @@ const Navbar = () => {
             transition: "transform 0.8s ease"
           }} />
           <div className={`dropdown__group ${dropdown && 'active'}`} >
-            <div><Link to="/tec_in_every_home">Tec in every home</Link></div>
-            <div><Link to="/tec_in_every_school">Tec in every School</Link></div>
-            <div><Link to="/tec_in_every_community">Tec in every Community</Link></div>
+            <div><Link to="/tec-client/tec_in_every_home">Tec in every home</Link></div>
+            <div><Link to="/tec-client/tec_in_every_school">Tec in every School</Link></div>
+            <div><Link to="/tec-client/tec_in_every_community">Tec in every Community</Link></div>
           </div>
         </div>
-        <div className="main"><Link to="/login">Login</Link></div>
+        <div className="main"><Link to="/tec-client/login">Login</Link></div>
       </div>
     </div>
     <div className="navbar">
@@ -93,10 +93,10 @@ const Navbar = () => {
       />
 
       <div className="links">
-        <div><Link to="/home">Home</Link></div>
-        <div><Link to="/about">About</Link></div>
-        <div><Link to="/contact">Contact</Link></div>
-        <div><Link to="/blog">Blog</Link></div>
+        <div><Link to="/tec-client/home">Home</Link></div>
+        <div><Link to="/tec-client/about">About</Link></div>
+        <div><Link to="/tec-client/contact">Contact</Link></div>
+        <div><Link to="/tec-client/blog">Blog</Link></div>
         <div className="dropdown" onClick={handleDropdown}>
           <a >Tec Groups </a>
           <MdOutlineArrowRight style={{
@@ -106,9 +106,9 @@ const Navbar = () => {
             transition: "transform 0.8s ease"
           }} />
           <div className={`dropdown__group ${dropdown && 'active'}`} >
-            <div><Link to="/tec_in_every_home">Tec in every home</Link></div>
-            <div><Link to="/tec_in_every_school">Tec in every School</Link></div>
-            <div><Link to="/tec_in_every_community">Tec in every Community</Link></div>
+            <div><Link to="/tec-client/tec_in_every_home">Tec in every home</Link></div>
+            <div><Link to="/tec-client/tec_in_every_school">Tec in every School</Link></div>
+            <div><Link to="/tec-client/tec_in_every_community">Tec in every Community</Link></div>
           </div>
         </div>
         <div

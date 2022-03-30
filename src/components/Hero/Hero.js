@@ -43,15 +43,15 @@ const Hero = () => {
   
 
   const handleNavOne = () => {
-   history.push('/tec_in_every_home')
+   history.push('/tec-client/tec_in_every_home')
   }
 
   const handleNavTwo = () => {
-    history.push('tec_in_every_school')
+    history.push('/tec-client/tec_in_every_school')
   }
 
   const handleNavThree = () => {
-    history.push('tec_in_every_community')
+    history.push('/tec-client/tec_in_every_community')
   }
   return (
     <div className="hero_cont">

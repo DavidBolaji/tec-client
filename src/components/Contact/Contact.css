@@ -52,7 +52,7 @@
     font-size: 22px;
     flex-direction: row;
     cursor: pointer;
-    width: 70%;
+    /* width: 70%; */
 }
 
 .contact__meet span {
@@ -89,7 +89,7 @@
 .contact__message p {
     color: #fff;
     letter-spacing: 0.01em;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .contact__message div {
