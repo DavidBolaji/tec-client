@@ -51,6 +51,29 @@
     font-size: 13px;
 }
 
+.file__hidden {
+    visibility: hidden;
+    display: none;
+}
+
+.upload__tray {
+    /* margin-top: 10px; */
+    display: flex;
+    background-color: #f7f7f7;
+    justify-content: space-between;
+    padding: 10px 20px 0px 20px;
+    cursor: pointer;
+    color: green;
+    /* justify-content: space-between; */
+}
+
+
+.upload__name {
+    flex: 0.9;
+}
+
+
+
 .login__page__checkbox {
     display: flex;
     align-items: center;

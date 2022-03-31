@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Form, Input, Button, Checkbox, Divider, Upload, message } from 'antd';
 import { FcGoogle } from "react-icons/fc";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -6,7 +6,7 @@ import EduLogo from '../../assets/img/code.svg'
 import { AiOutlineMail, AiFillEyeInvisible, AiFillEye, AiOutlineCloudUpload } from "react-icons/ai";
 import "./RegisterP.css";
 import { Link } from 'react-router-dom';
-import { FiUser } from 'react-icons/fi';
+import { FiTrash, FiUser } from 'react-icons/fi';
 
 
 const RegisterP = () => {
@@ -14,32 +14,23 @@ const RegisterP = () => {
         // <RiLockPasswordLine />
     }
 
-    const [img, setImg] = useState({
-        fileList: []
-    });
+    const uploadRef = useRef();
+    const [img, setImg] = useState([]);
 
-    const handleChange = info => {
-        let fileList = [...info.fileList];
-        // 1. Limit the number of uploaded files
-        fileList = fileList.slice(-1);
+    const toggleFile = () => {
+        uploadRef.current.click();
+    }
 
-        
-        if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
-        } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-        }
-    
-        setImg({ fileList });
-      };
+    const handleUploadChange = () => {
+        setImg([uploadRef.current.files[0]]);
 
-    const props = {
-        name: 'file',
-        action: 'https://run.mocky.io/v3/0a957d89-c5a2-4018-9dc2-99c6c6e7d223',
-        multiple: true,
-        onChange: handleChange
-      };
+        message.success(`file uploaded successfully`);
+    }
 
+    const clearFile = () => {
+        setImg([]);
+        message.success(`file removed successfully`);
+    }
       
   return (
     <div className='register__page'
@@ -79,13 +70,26 @@ const RegisterP = () => {
                         />
                     </div>
                     <div>
-                        <Upload {...props} fileList={img.fileList}>
-                            <Button icon={<AiOutlineCloudUpload style={{
-                                marginRight: 5,
-                                paddingTop: 3
-                            }} />}>Click to Upload</Button>
-                        </Upload>
+                        
+                        <Button onClick={toggleFile} icon={<AiOutlineCloudUpload style={{
+                            marginRight: 5,
+                            paddingTop: 3
+                        }} />}  
+                        
+                        > Click to Upload</Button>
+                        
+                    <input type='file' className="file__hidden" ref={uploadRef} onChange={handleUploadChange}/>
                     </div>
+                    {img.length > 0 ?<div className='upload__tray'>
+                            <div className='upload__name'>
+                                {img.map(e =>{
+                                    return(
+                                        <span key={e.name}>{e.name}</span>
+                                    )
+                                })}
+                            </div>
+                            <div><FiTrash onClick={clearFile}/></div>
+                        </div>: null}
 
                     <div className='register__page__checkbox'>
                         <div>
@@ -103,6 +107,7 @@ const RegisterP = () => {
                             borderRadius: 20,
                          }}
                         >Submit</Button>
+                        
                     </div>
                     <p>
                         <span style={{fontWeight: 700}}>registered already?</span> <span><Link to="/tec-client/login">Login</Link></span>
