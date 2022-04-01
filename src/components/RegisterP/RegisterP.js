@@ -5,17 +5,26 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import EduLogo from '../../assets/img/code.svg'
 import { AiOutlineMail, AiFillEyeInvisible, AiFillEye, AiOutlineCloudUpload } from "react-icons/ai";
 import "./RegisterP.css";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 import { FiTrash, FiUser } from 'react-icons/fi';
 
 
 const RegisterP = () => {
-    const onChange = (e) => {
-        // <RiLockPasswordLine />
-    }
+    
 
     const uploadRef = useRef();
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const passwordRef = useRef();
     const [img, setImg] = useState([]);
+    const [check, setcheck] = useState(false);
+    const url = 'http://localhost:5000/api/v1/user/register';
+    const history = useHistory()
+
+    const onChange = (e) => {
+        setcheck(prev => !prev)
+    }
 
     const toggleFile = () => {
         uploadRef.current.click();
@@ -23,7 +32,7 @@ const RegisterP = () => {
 
     const handleUploadChange = () => {
         setImg([uploadRef.current.files[0]]);
-
+        console.log(uploadRef.current.files[0]);
         message.success(`file uploaded successfully`);
     }
 
@@ -31,6 +40,46 @@ const RegisterP = () => {
         setImg([]);
         message.success(`file removed successfully`);
     }
+
+    const handleSubmit =  () => {
+
+        const name = nameRef.current.input.value;
+        const email = emailRef.current.input.value;
+        const password = passwordRef.current.input.value;
+        const formData = new FormData()
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("password", password);
+        const reader = new FileReader();
+        reader.readAsDataURL(img[0])
+
+        reader.onloadend = async () => {
+            formData.append("images", img[0]);
+
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                headers: {
+               
+                },
+                body: formData // body data type must match "Content-Type" header
+              });
+             
+
+            const result = await response.json();
+
+            if (result) {
+                message.success(`User Registered successfully`);
+    
+                setTimeout(() => {
+                    history.push('/tec-client/login')
+                },3000)
+
+            }
+
+        }
+
+    }
+    
       
   return (
     <div className='register__page'
@@ -54,23 +103,24 @@ const RegisterP = () => {
                 <form className='register__page__form__group'>
                     <div className='register__page__name'>
                         <label className='label'>Name*</label>
-                        <Input placeholder="Enter Name" prefix={<FiUser />} />
+                        <Input placeholder="Enter Name" ref={nameRef} name="name" prefix={<FiUser />} />
                     </div>
                     <div className='register__page__email'>
                         <label className='label'>Email*</label>
-                        <Input placeholder="Enter Email" prefix={<AiOutlineMail />} />
+                        <Input placeholder="Enter Email" ref={emailRef}  name="email" prefix={<AiOutlineMail />} />
                     </div>
                     <div className='register__page__password'>
                         <label className='label'>Password*</label>
                         
                         <Input.Password
                             placeholder="Enter password"
+                            name="password"
+                            ref={passwordRef}
                             prefix={<RiLockPasswordLine />}
                             iconRender={visible => (visible ? <AiFillEye /> : <AiFillEyeInvisible />)}
                         />
                     </div>
                     <div>
-                        
                         <Button onClick={toggleFile} icon={<AiOutlineCloudUpload style={{
                             marginRight: 5,
                             paddingTop: 3
@@ -93,7 +143,7 @@ const RegisterP = () => {
 
                     <div className='register__page__checkbox'>
                         <div>
-                            <Checkbox onChange={onChange}><span>I agree to <Link to="/tec-client/terms"> Terms of service</Link> and <Link to="/tec-client/privacy">Privacy Policy</Link> </span></Checkbox>
+                            <Checkbox onChange={onChange} checked={check && true} ><span>I agree to <Link to="/tec-client/terms"> Terms of service</Link> and <Link to="/tec-client/privacy">Privacy Policy</Link> </span></Checkbox>
                         </div>
                         
                     </div>
@@ -106,6 +156,7 @@ const RegisterP = () => {
                             width: '100%',
                             borderRadius: 20,
                          }}
+                         onClick={handleSubmit}
                         >Submit</Button>
                         
                     </div>
