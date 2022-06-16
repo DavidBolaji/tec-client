@@ -13,7 +13,7 @@
         /* flex: 1; */
         flex-direction: column;
         display: flex;
-        max-width: calc();
+       
     }
     .blog__page__blog.single img{
         width: 100%;
