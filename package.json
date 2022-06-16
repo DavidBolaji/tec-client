@@ -14,6 +14,7 @@
     "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "postcss-custom-properties": "^10.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "4.3.1",
@@ -23,6 +24,9 @@
     "react-scripts": "4.0.0",
     "redux": "4.1.2",
     "styled-components": "^5.3.5"
+  },
+  "resolutions": {
+    "react-scripts/postcss-preset-env/postcss-custom-properties": "^10.0.0"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
