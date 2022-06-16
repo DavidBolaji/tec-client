@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import Logo from "../../assets/img/home.webp";
+import {  message } from "antd";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Input } from 'antd';
 import "./MailingList.css";
@@ -8,6 +9,38 @@ const { Search } = Input;
 
 const MailingList = () => {
     const [loading, setLoading] = useState(false)
+    const searchRef = useRef()
+
+    // const sendEmail = (e) => {
+    //   e.preventDefault();
+  
+    //   emailjs.sendForm('gmail', 'template_wbti2ie', form.current, '0kDDdjI2hw-sG98Sf')
+    //     .then((result) => {
+    //         console.log(result.text);
+    //     }, (error) => {
+    //         console.log(error.text);
+    //     });
+    // };
+
+    const handleSubmit = async () => {
+      
+      const url = `https://tec-server-api.herokuapp.com/api/v1/email/subscribe`
+      const email = searchRef.current.input.value
+      const query = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({email }), 
+      })
+
+      const data = await query.json();
+
+      if(data.email) {
+        message.success("Subscription Successful, Thanks for subscribing")
+      }
+      searchRef.current.input.value = ""
+    }
   return (
     <div className="mailing_list">
       <div className="mailing_list_image"
@@ -30,7 +63,7 @@ const MailingList = () => {
          data-aos="slide-left"
          data-aos-duration="1000"
          >
-            <Search placeholder="Enter your email address" enterButton={<BsArrowRightShort />} size="large" {...loading && loading} />
+            <Search ref={searchRef} placeholder="Enter your email address" enterButton={<BsArrowRightShort  onClick={handleSubmit} />} size="large" {...loading && loading} />
          </div>
       </div>
     </div>

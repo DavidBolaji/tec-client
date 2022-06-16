@@ -4,8 +4,11 @@ import { Button, Modal, notification, Spin } from 'antd';
 import Homepage from "./pages/Homepage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import AdminDashboard from "./pages/AdminDashboard";
+import UserDashboard from "./pages/UserDashboard";
 import TecInEveryHome from "./pages/TecInEveryHome";
 import TecInEverySchool from "./pages/TecInEverySchool";
+import Gallery from "./pages/Gallery";
 import TecInEveryCommunity from "./pages/TecInEveryCommunity";
 import NotFound from "./pages/404";
 import Blog from "./pages/Blog";
@@ -16,6 +19,8 @@ import 'antd/dist/antd.css';
 import "./styles.css";
 import 'aos/dist/aos.css'
 import AOS from 'aos';
+import Test from "./components/Test";
+require('dotenv').config();
 
 
 const ReachableContext = React.createContext();
@@ -86,7 +91,7 @@ export default function App() {
           <TecInEverySchool />
         </Route>
 
-        <Route path="/tec-client/blog">
+        <Route path="/tec-client/blog" exact>
           <Blog />
         </Route>
 
@@ -100,6 +105,18 @@ export default function App() {
 
         <Route path="/tec-client/register">
           <Register />
+        </Route>
+
+        <Route path="/tec-client/gallery">
+          <Gallery />
+        </Route>
+
+        <Route path="/tec-client/adminDashBoard/:adminId">
+          <AdminDashboard />
+        </Route>
+
+        <Route path="/tec-client/userDashBoard/:userId">
+          <UserDashboard />
         </Route>
 
         <Route>

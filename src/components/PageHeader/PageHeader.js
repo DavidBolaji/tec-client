@@ -1,6 +1,7 @@
 import { Divider } from 'antd'
 import React from 'react';
 import { MdArrowRight } from 'react-icons/md';
+import { truncate } from '../../utils/truncate';
 import HomePic from './../../assets/img/home.webp';
 import "./PageHeader.css";
 
@@ -19,7 +20,7 @@ const PageHeader = (props) => {
                         color: 'red'
                     }}
                 />
-                <span>{props.page}</span>
+                <span>{truncate(props.page,5)}</span>
             </div>
             
             <Divider dashed/>

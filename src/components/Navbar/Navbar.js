@@ -48,6 +48,7 @@ const Navbar = () => {
         <div className="main"><Link to="/tec-client/about">About</Link></div>
         <div className="main"><Link to="/tec-client/contact">Contact</Link></div>
         <div className="main"><Link to="/tec-client/blog">Blog</Link></div>
+        <div className="main"><Link to="/tec-client/gallery">Gallery</Link></div>
         <div className="dropdown main" onMouseEnter={handleDropdown} onMouseLeave={handleDropdown}>
           <a href="#">Tec Groups </a>
           <MdOutlineArrowRight style={{
@@ -65,6 +66,7 @@ const Navbar = () => {
         <div className="main"><Link to="/tec-client/login">Login</Link></div>
       </div>
     </div>
+    
     <div className="navbar">
       <div className="navbar_menu" onClick={handleClick}>
         <HiMenuAlt1 color="#fff" fontSize="20px" />
@@ -96,6 +98,7 @@ const Navbar = () => {
         <div><Link to="/tec-client/about">About</Link></div>
         <div><Link to="/tec-client/contact">Contact</Link></div>
         <div><Link to="/tec-client/blog">Blog</Link></div>
+        <div><Link to="/tec-client/gallery">Gallery</Link></div>
         <div className="dropdown" onClick={handleDropdown}>
           <a >Tec Groups </a>
           <MdOutlineArrowRight style={{

@@ -79,5 +79,8 @@
 
     .page__header__container .bread__crumb {
        font-size: 1.245rem;
+        white-space: nowrap;
     }
+
+    
 } 

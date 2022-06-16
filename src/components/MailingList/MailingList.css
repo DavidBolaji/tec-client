@@ -74,16 +74,29 @@
     }
     .mailing_list .mailing_list_text {
         flex: 0.5;
+        
 
-        padding-right: 100px;
-        padding-left: 60px;
+        /* padding-right: 100px;
+        padding-left: 60px; */
     }
     .mailing_list .mailing_list_text h3 {
         font-size: 2.245rem;
+        max-width: 550px;
+        margin: auto;
     }
 
     .mailing_list .mailing_list_text p {
         font-size: 1rem;
+        max-width: 550px;
+        margin: auto;
+    }
+
+    .mailing_list .mailing_list_text .mailing_list_btn {
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+
     }
 }
   
